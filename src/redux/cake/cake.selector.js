@@ -1,1 +1,1 @@
-export const cakeSelector = (state) => state.numberOfCakes;
+export const cakeSelector = (state) => state.cake.numberOfCakes;
