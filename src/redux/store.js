@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import logger from 'redux-logger'
 
 const initialState = {
-  numbersOfCakes: 0
+  numberOfCakes: 0
 };
 
 function rootReducer(state = initialState, action) {
@@ -10,9 +10,9 @@ function rootReducer(state = initialState, action) {
   console.log(action)
   switch (action.type) {
     case 'BUY_CAKE':
-      return { numberOfCakes: parseInt(state.numbersOfCakes) + 1 }
+      return { numberOfCakes: state.numberOfCakes + 1 }
     case 'SELL_CAKE':
-      return { numberOfCakes: parseInt(state.numbersOfCakes) - 1 }
+      return { numberOfCakes: state.numberOfCakes - 1 }
     default:
       return state
   }
