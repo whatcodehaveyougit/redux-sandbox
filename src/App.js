@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useDispatch } from 'react-redux';
+import { buyCake } from './redux/cake/cake.actions';
+import { useSelector } from 'react-redux';
+import { cakeSelector } from './redux/cake/cake.selector';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  function handleClickBuyCake(){
+    dispatch(buyCake(1))
+  }
+  const cake = useSelector(cakeSelector)
+
+  console.log(cake)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Hello World</h3>
+      <h4>{cake}</h4>
+      <button onClick={handleClickBuyCake}>Buy Cake</button>
+      <button>Sell Cake</button>
+
     </div>
   );
 }
